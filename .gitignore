@@ -1,0 +1,5 @@
+# Local design explorations and source screenshots (contain other people's Reddit content)
+versions/
+Screenshot*.png
+*.zip
+.DS_Store

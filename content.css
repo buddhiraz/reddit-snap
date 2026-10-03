@@ -1,0 +1,14 @@
+.rsnap-btn {
+  display: inline-flex;
+  align-items: center;
+  margin: 4px 0 4px 8px;
+  padding: 4px 10px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--color-neutral-content-weak, #8ba2ad);
+  font: 600 12px/16px system-ui, sans-serif;
+  cursor: pointer;
+}
+.rsnap-btn:hover { background: var(--color-secondary-background-hover, rgba(255, 255, 255, 0.08)); }
+.rsnap-btn:disabled { opacity: 0.6; cursor: progress; }

@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Reddit Snap – Frame it",
+  "version": "0.1.0",
+  "description": "Turn a Reddit post and a comment thread into one clean shareable image.",
+  "permissions": ["storage", "contextMenus", "clipboardWrite"],
+  "host_permissions": [
+    "https://www.reddit.com/*",
+    "https://*.redd.it/*",
+    "https://*.redditmedia.com/*",
+    "https://*.redditstatic.com/*"
+  ],
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    {
+      "matches": ["https://www.reddit.com/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": { "16": "icons/16.png", "48": "icons/48.png", "128": "icons/128.png" }
+}

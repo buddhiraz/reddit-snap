@@ -1,0 +1,87 @@
+:root {
+  --bg: #0b1416;
+  --text: #f2f4f5;
+  --body: #b7cad4;
+  --meta: #8ba2ad;
+  --line: #33464c;
+  --chip: #1a282d;
+  --op: #4d9df8;
+  --font: "IBM Plex Sans", "Noto Sans", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; background: #050a0b; color: var(--text); font-family: var(--font); }
+
+/* Page chrome (not part of the exported image) */
+.toolbar {
+  position: sticky; top: 0; z-index: 1;
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  padding: 12px 20px; background: #111c1f; border-bottom: 1px solid var(--line);
+  font-size: 14px;
+}
+.toolbar select { background: var(--chip); color: var(--text); border: 1px solid var(--line);
+  border-radius: 8px; padding: 4px 8px; font: 14px var(--font); }
+.toolbar label { display: inline-flex; gap: 6px; align-items: center; color: var(--body); cursor: pointer; }
+.toolbar .spacer { flex: 1; }
+.toolbar button {
+  padding: 8px 16px; border-radius: 999px; border: 1px solid var(--line);
+  background: var(--chip); color: var(--text); font: 600 14px var(--font); cursor: pointer;
+}
+.toolbar button.primary { background: #d93900; border-color: #d93900; }
+.toolbar button:disabled { opacity: 0.5; cursor: default; }
+#status { color: var(--meta); }
+main { display: flex; justify-content: center; padding: 32px 16px 64px; }
+
+/* The exported card — "v2 clean thread": 540px wide, exported at 2x = 1080px.
+   Default: full post image, card grows taller. .fixed: exactly 1080x1350 (IG 4:5). */
+.card {
+  width: 540px; min-height: 675px; padding: 32px 32px 22px;
+  display: flex; flex-direction: column; background: var(--bg);
+}
+/* "Instagram 4:5" size: card locked to 540x675 */
+.card.fixed { height: 675px; overflow: hidden; }
+.card .err { color: #ff8b6a; }
+
+.post-head { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--meta); flex: none; }
+.post-head img { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; }
+.post-head .sub { color: var(--text); font-weight: 600; }
+
+.title { margin: 11px 0 13px; font-size: 23px; line-height: 1.2; font-weight: 700; color: var(--text); flex: none; }
+/* Post image is never cropped: natural size by default, letterboxed (contain) in 4:5 mode */
+.media { flex: none; display: block; width: 100%; height: auto; border-radius: 14px; }
+.fixed .media { flex: 1 1 0; min-height: 110px; height: 0; object-fit: contain; border-radius: 0; }
+.selftext {
+  flex: none; max-height: 320px; min-height: 60px; overflow: hidden; color: var(--body); font-size: 15px; line-height: 1.45;
+  -webkit-mask-image: linear-gradient(#000 70%, transparent);
+}
+
+/* Optional parent comments: compact context above the hero reply */
+.context { flex: none; margin-top: 14px; display: flex; flex-direction: column; gap: 8px; }
+.ctx { font-size: 13px; color: var(--body); }
+.ctx b { color: var(--text); }
+
+.reply {
+  flex: none; margin-top: 18px; padding: 20px 22px; border-radius: 16px;
+  background: #15242a; border: 1px solid #23363d;
+}
+.who { display: flex; align-items: center; gap: 9px; font-size: 15px; color: var(--meta); }
+.who img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; background: var(--chip); }
+.who b { color: #fff; font-weight: 700; font-size: 17px; }
+.who .op { color: var(--op); font-weight: 700; }
+.quote { margin-top: 11px; font-size: 31px; line-height: 1.18; font-weight: 600; color: #fff; overflow-wrap: anywhere; }
+.quote p { margin: 0 0 0.3em; }
+.quote p:last-child { margin-bottom: 0; }
+.quote blockquote { margin: 0 0 8px; padding-left: 10px; border-left: 3px solid var(--line); color: var(--body); }
+.quote img { max-width: 100%; max-height: 180px; border-radius: 8px; vertical-align: middle; }
+.quote img.emote { height: 1em; width: auto; border-radius: 0; }
+.votes { margin-top: 10px; font-size: 14px; font-weight: 600; color: #ff8b60; }
+
+/* Optional direct replies, under the hero card */
+.replies { flex: none; margin: 10px 0 0 22px; padding-left: 12px; border-left: 1px solid var(--line);
+           display: flex; flex-direction: column; gap: 6px; }
+
+.fixed .selftext { flex: 1 1 0; max-height: none; }
+.foot { margin-top: auto; padding-top: 10px; flex: none; display: flex; justify-content: flex-end;
+        align-items: center; gap: 5px; font-size: 11px; color: #5d737c; }
+.foot i { width: 7px; height: 7px; border-radius: 2px; background: #ff4500; }
+.card pre, .card code { font-family: ui-monospace, monospace; font-size: 0.8em; }

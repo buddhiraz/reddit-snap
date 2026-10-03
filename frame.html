@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Reddit Snap – Frame</title>
+  <link rel="stylesheet" href="vendor/fonts.css">
+  <link rel="stylesheet" href="frame.css">
+</head>
+<body>
+  <header class="toolbar">
+    <strong>Reddit Snap</strong>
+    <label>Size <select id="opt-size">
+      <option value="full">Full image</option>
+      <option value="fixed">Instagram 4:5</option>
+    </select></label>
+    <label><input type="checkbox" id="opt-parents"> Include parent comments</label>
+    <label><input type="checkbox" id="opt-replies"> Include direct replies</label>
+    <label><input type="checkbox" id="opt-actions" checked> Show vote counts</label>
+    <span class="spacer"></span>
+    <span id="status" role="status"></span>
+    <button id="copy" disabled>Copy to clipboard</button>
+    <button id="download" class="primary" disabled>Download PNG</button>
+  </header>
+  <main>
+    <div id="card" class="card"></div>
+  </main>
+  <script src="vendor/html-to-image.js"></script>
+  <script src="frame.js"></script>
+</body>
+</html>
